@@ -35,7 +35,7 @@ def get_period(a):
     '''Given a semi major axis in meters, it returns the orbital period in days using Kepler's 3rd law'''
     return ((a/(1.5*10**(11)))**3)**(1/2)*365
 
-def optimal_launch_deg(r_orgin,e,a,ma):
+def optimal_launch_window(r_orgin,e,a,ma):
     '''Given the same parameters as circular_eliptical, it calculates the optimal launch window in days in the future (since March 30, 2020) and the mean anomoly of Pluto at launch'''
     a_o,a_h = circular_eliptical(r_orgin,e,a,'a_o,a_h')
     p_h = get_period(a_h)/2 #half period of hohmann
@@ -48,4 +48,4 @@ def optimal_launch_deg(r_orgin,e,a,ma):
 
 dv1,dv2 = circular_circular(r_earth,r_jupiter) #Earth to Jupiter
 dv1,dv2 = circular_eliptical(r_earth,e,a) #Earth to Pluto
-days_until_launch,mean_anomoly_launch = optimal_launch_deg(r_earth,e,a,c_ma)
+days_until_launch,mean_anomoly_launch = optimal_launch_window(r_earth,e,a,c_ma)
