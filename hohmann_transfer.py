@@ -36,7 +36,7 @@ def get_period(a):
     return ((a/(1.5*10**(11)))**3)**(1/2)*365
 
 def optimal_launch_deg(r_orgin,e,a,ma):
-    '''Given the same parameters as circular_eliptical, it calculates the optimal launch window in terms of degree difference between the orgin and target'''
+    '''Given the same parameters as circular_eliptical, it calculates the optimal launch window in days in the future (since March 30, 2020) and the mean anomoly of Pluto at launch'''
     a_o,a_h = circular_eliptical(r_orgin,e,a,'a_o,a_h')
     p_h = get_period(a_h)/2 #half period of hohmann
     p_o = get_period(a_o) #period of destination
